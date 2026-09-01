@@ -200,7 +200,7 @@ const projects: Project[] = [
     description:
       "A cross-market content and KOL plan designed to extend a private in-store event into broader brand and store awareness.",
     tags: ["Campaign Coordination", "KOL", "Retail"],
-    status: "Ongoing project · Singapore and Kuala Lumpur · 2026",
+    status: "Project completed · 21 August 2026",
     details: [
       ["Role", "Campaign Coordinator & Visual Designer"],
       [
