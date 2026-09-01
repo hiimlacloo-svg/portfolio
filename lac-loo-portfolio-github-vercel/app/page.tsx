@@ -24,6 +24,7 @@ type Project = {
   status?: string;
   details?: string[][];
   cases?: ProjectCase[];
+  href?: string;
 };
 
 const projects: Project[] = [
@@ -32,23 +33,24 @@ const projects: Project[] = [
     title: "Mid-Autumn 2026",
     subtitle: "Integrated Campaign System",
     description:
-      "A full-funnel launch connecting five gift-set stories across retail, social, paid media and corporate gifting.",
-    tags: ["Campaign", "Art Direction", "Paid Media"],
-    status: "Campaign in progress · Launching August 2026",
+      "An integrated festive campaign connecting paid media, social, creator content, retail and the company website across Singapore and Malaysia.",
+    tags: ["Integrated Campaign", "Paid Media", "Creator Marketing"],
+    status: "Campaign completed · August 2026",
     details: [
       ["Role", "Graphic Designer & Campaign Coordinator"],
       ["Company", "SUNS Singapore"],
-      ["Market", "Singapore"],
+      ["Markets", "Singapore and Malaysia"],
       [
         "Scope",
-        "Campaign visual direction, Shopify content, social assets, paid-ad creatives and retail collateral",
+        "Social and paid-media planning, retail and digital artwork, website content and creator coordination",
       ],
       [
         "Collaboration",
-        "Marketing, retail, regional and external agency teams",
+        "Internal teams, retail stakeholders and Malaysia creator partners",
       ],
     ],
     className: "project-feature project-moon",
+    href: "/projects/mid-autumn-2026",
     visual: (
       <div className="moon-scene">
         <img
@@ -454,7 +456,7 @@ export default function Home() {
                 Contact ↗
               </a>
               <a
-                href="https://app.notion.com/p/Portfolio-of-Lac-Loo-23039057837f80039ebef2f799ca07fd?source=copy_link"
+                href="/Lac-Resume-2026.pdf"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -561,8 +563,9 @@ export default function Home() {
         </div>
 
         <div className="projects-grid">
-          {projects.map((project) =>
-            project.cases ? (
+          {projects.map((project) => {
+            if (project.cases) {
+              return (
               <section
                 className="commerce-project"
                 id={`project-${project.number}`}
@@ -604,7 +607,10 @@ export default function Home() {
                   ))}
                 </div>
               </section>
-            ) : (
+              );
+            }
+
+            const card = (
               <SpotlightCard
                 className={`project-card ${project.className ?? ""}`}
                 spotlightColor="rgba(0, 229, 255, 0.2)"
@@ -618,6 +624,11 @@ export default function Home() {
                     <p>{project.subtitle}</p>
                     <h3>{project.title}</h3>
                     <span>{project.description}</span>
+                    {project.href && (
+                      <span className="project-case-link">
+                        View case study <b>↗</b>
+                      </span>
+                    )}
                   </div>
                   <div className="project-tags">
                     {project.tags.map((tag) => (
@@ -642,8 +653,21 @@ export default function Home() {
                   </dl>
                 )}
               </SpotlightCard>
-            ),
-          )}
+            );
+
+            return project.href ? (
+              <a
+                className="project-card-link"
+                href={project.href}
+                aria-label={`View ${project.title} case study`}
+                key={project.number}
+              >
+                {card}
+              </a>
+            ) : (
+              card
+            );
+          })}
         </div>
         <div className="work-archive-action">
           <a
@@ -766,7 +790,7 @@ export default function Home() {
                 LinkedIn
               </a>
               <a
-                href="https://app.notion.com/p/Portfolio-of-Lac-Loo-23039057837f80039ebef2f799ca07fd?source=copy_link"
+                href="/Lac-Resume-2026.pdf"
                 target="_blank"
                 rel="noreferrer"
               >
