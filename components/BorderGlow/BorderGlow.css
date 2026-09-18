@@ -5,6 +5,10 @@
   transform: translate3d(0, 0, 0.01px);
 }
 
+.border-glow:hover {
+  z-index: 2;
+}
+
 .border-glow__border,
 .border-glow__fill,
 .border-glow__outer,

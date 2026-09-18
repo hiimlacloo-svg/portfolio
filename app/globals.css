@@ -2972,13 +2972,17 @@ a:focus-visible {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.case-brief-columns article,
-.case-approach-grid article {
+.case-brief-card {
   min-width: 0;
+}
+
+.case-brief-card .border-glow__content,
+.case-brief-card article {
+  height: 100%;
+}
+
+.case-brief-card article {
   padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: rgba(7, 9, 8, .46);
 }
 
 .case-brief-columns h4,
@@ -3000,21 +3004,26 @@ a:focus-visible {
 .case-contribution-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
+  gap: 12px;
 }
 
 .case-contribution {
   min-height: 270px;
-  padding: 24px 32px 30px 0;
-  border-bottom: 1px solid var(--line);
+  min-width: 0;
 }
 
-.case-contribution:nth-child(even) {
-  padding-left: 32px;
-  border-left: 1px solid var(--line);
+.case-contribution .border-glow__content,
+.case-contribution article {
+  height: 100%;
 }
 
-.case-contribution > span {
+.case-contribution article {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+}
+
+.case-contribution article > span {
   display: block;
   margin-bottom: 62px;
   color: var(--lime);
@@ -3043,12 +3052,14 @@ a:focus-visible {
 }
 
 .case-collaboration {
+  margin-top: 34px;
+}
+
+.border-glow.case-collaboration .border-glow__content {
   display: grid;
   grid-template-columns: .65fr 1.35fr;
   gap: 36px;
-  margin-top: 34px;
-  padding: 28px 0 6px;
-  border-top: 1px solid var(--line);
+  padding: 28px;
 }
 
 .case-collaboration h3 {
@@ -3114,12 +3125,6 @@ a:focus-visible {
   justify-content: space-between;
 }
 
-.case-result:nth-child(1) {
-  border-color: transparent;
-  background: var(--lime);
-  color: var(--ink);
-}
-
 .case-result strong {
   font-size: clamp(3.2rem, 5vw, 5.8rem);
   font-weight: 560;
@@ -3151,12 +3156,19 @@ a:focus-visible {
 }
 
 .case-asset {
+  height: 100%;
   min-width: 0;
   overflow: hidden;
   margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  background: var(--surface-deep);
+  border-radius: inherit;
+}
+
+.case-asset-glow {
+  min-width: 0;
+}
+
+.case-asset-glow .border-glow__content {
+  height: 100%;
 }
 
 .case-asset-wide {
@@ -3235,13 +3247,19 @@ a:focus-visible {
   gap: 16px;
 }
 
-.case-audience-comparison-grid figure {
+.case-comparison-card {
   min-width: 0;
+}
+
+.case-comparison-card .border-glow__content,
+.case-comparison-card figure {
+  height: 100%;
+}
+
+.case-audience-comparison-grid figure {
   overflow: hidden;
   margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  background: var(--surface-deep);
+  border-radius: inherit;
 }
 
 .case-audience-comparison-grid figure > a {
@@ -3299,7 +3317,7 @@ a:focus-visible {
   grid-row: 2;
   min-height: 210px;
   margin-top: 30px;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .case-creators-copy h2 {
@@ -3521,26 +3539,30 @@ a:focus-visible {
     margin-top: 54px;
   }
 
-  .case-brief-columns article,
-  .case-approach-grid article {
+  .case-brief-card article {
     padding: 20px;
   }
 
-  .case-contribution,
-  .case-contribution:nth-child(even) {
+  .case-contribution {
     min-height: 235px;
-    padding: 22px 0 26px;
-    border-left: 0;
   }
 
-  .case-contribution > span {
+  .case-contribution article {
+    padding: 22px;
+  }
+
+  .case-contribution article > span {
     margin-bottom: 50px;
   }
 
   .case-collaboration {
+    margin-top: 28px;
+  }
+
+  .border-glow.case-collaboration .border-glow__content {
     grid-template-columns: 1fr;
     gap: 18px;
-    margin-top: 28px;
+    padding: 22px;
   }
 
   .case-result {

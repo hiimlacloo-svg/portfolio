@@ -33,13 +33,6 @@ const parseHSL = (value) => {
 const buildBoxShadow = (glowColor, intensity) => {
   const { h, s, l } = parseHSL(glowColor);
   const layers = [
-    [0, 1, 100, true],
-    [1, 0, 60, true],
-    [3, 0, 50, true],
-    [6, 0, 40, true],
-    [15, 0, 30, true],
-    [25, 2, 20, true],
-    [50, 2, 10, true],
     [1, 0, 60, false],
     [3, 0, 50, false],
     [6, 0, 40, false],

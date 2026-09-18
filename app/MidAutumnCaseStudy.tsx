@@ -39,6 +39,18 @@ const results = [
   { value: "658", label: "Google Search clicks" },
 ];
 
+const caseCardGlow = {
+  edgeSensitivity: 30,
+  glowColor: "40 80 80",
+  backgroundColor: "#120F17",
+  borderRadius: 28,
+  glowRadius: 40,
+  glowIntensity: 1.0,
+  coneSpread: 25,
+  animated: false,
+  colors: ["#c084fc", "#f472b6", "#38bdf8"],
+};
+
 export default function MidAutumnCaseStudy() {
   return (
     <main className="site-frame case-study-page">
@@ -120,55 +132,65 @@ export default function MidAutumnCaseStudy() {
             <div className="case-brief-subsection">
               <h3>Audience &amp; objective</h3>
               <div className="case-brief-columns">
-                <article>
-                  <h4>Audience</h4>
-                  <p>
-                    Corporate buyers exploring customised Mid-Autumn gifts for clients
-                    and teams, and individual shoppers buying gifts for family and friends
-                    or collecting the sets themselves. The campaign covered Singapore and
-                    Malaysia through digital, retail and creator touchpoints.
-                  </p>
-                </article>
-                <article>
-                  <h4>Objective</h4>
-                  <p>
-                    Build awareness of SUNS and its Mid-Autumn collection, support product
-                    discovery and establish an initial awareness and traffic baseline for
-                    future campaign comparisons.
-                  </p>
-                </article>
+                <BorderGlow {...caseCardGlow} className="case-brief-card">
+                  <article>
+                    <h4>Audience</h4>
+                    <p>
+                      Corporate buyers exploring customised Mid-Autumn gifts for clients
+                      and teams, and individual shoppers buying gifts for family and friends
+                      or collecting the sets themselves. The campaign covered Singapore and
+                      Malaysia through digital, retail and creator touchpoints.
+                    </p>
+                  </article>
+                </BorderGlow>
+                <BorderGlow {...caseCardGlow} className="case-brief-card">
+                  <article>
+                    <h4>Objective</h4>
+                    <p>
+                      Build awareness of SUNS and its Mid-Autumn collection, support product
+                      discovery and establish an initial awareness and traffic baseline for
+                      future campaign comparisons.
+                    </p>
+                  </article>
+                </BorderGlow>
               </div>
             </div>
 
             <div className="case-brief-subsection">
               <h3>Campaign approach</h3>
               <div className="case-approach-grid">
-                <article>
-                  <h4>Channel direction</h4>
-                  <p>
-                    The CMO selected the channels to build awareness of SUNS. LinkedIn
-                    focused on corporate gifting and customisation, while Meta supported
-                    brand familiarity and targeted reach. Instagram content also kept
-                    existing followers informed about the collection.
-                  </p>
-                </article>
-                <article>
-                  <h4>Two audiences, two creative directions</h4>
-                  <p>
-                    I developed separate messaging and artwork for B2B and B2C audiences.
-                    The B2B version focused on corporate gifting and customisation; the B2C
-                    version presented the collection as gifts for family and friends, as
-                    well as pieces to collect personally.
-                  </p>
-                </article>
-                <article>
-                  <h4>Testing from a new baseline</h4>
-                  <p>
-                    With no previous campaign data available to me, I tested variations in
-                    artwork, captions, keywords and scheduling to establish an initial
-                    baseline for future campaigns.
-                  </p>
-                </article>
+                <BorderGlow {...caseCardGlow} className="case-brief-card">
+                  <article>
+                    <h4>Channel direction</h4>
+                    <p>
+                      The CMO selected the channels to build awareness of SUNS. LinkedIn
+                      focused on corporate gifting and customisation, while Meta supported
+                      brand familiarity and targeted reach. Instagram content also kept
+                      existing followers informed about the collection.
+                    </p>
+                  </article>
+                </BorderGlow>
+                <BorderGlow {...caseCardGlow} className="case-brief-card">
+                  <article>
+                    <h4>Two audiences, two creative directions</h4>
+                    <p>
+                      I developed separate messaging and artwork for B2B and B2C audiences.
+                      The B2B version focused on corporate gifting and customisation; the B2C
+                      version presented the collection as gifts for family and friends, as
+                      well as pieces to collect personally.
+                    </p>
+                  </article>
+                </BorderGlow>
+                <BorderGlow {...caseCardGlow} className="case-brief-card">
+                  <article>
+                    <h4>Testing from a new baseline</h4>
+                    <p>
+                      With no previous campaign data available to me, I tested variations in
+                      artwork, captions, keywords and scheduling to establish an initial
+                      baseline for future campaigns.
+                    </p>
+                  </article>
+                </BorderGlow>
               </div>
             </div>
           </div>
@@ -179,14 +201,16 @@ export default function MidAutumnCaseStudy() {
           <div className="case-contribution-content">
             <div className="case-contribution-grid">
               {contributions.map((item) => (
-                <article className="case-contribution" key={item.number}>
-                  <span>{item.number}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </article>
+                <BorderGlow {...caseCardGlow} className="case-contribution" key={item.number}>
+                  <article>
+                    <span>{item.number}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </article>
+                </BorderGlow>
               ))}
             </div>
-            <div className="case-collaboration">
+            <BorderGlow {...caseCardGlow} className="case-collaboration">
               <h3>Team collaboration</h3>
               <p>
                 Wells, the CMO, provided the campaign direction and selected the channels.
@@ -194,7 +218,7 @@ export default function MidAutumnCaseStudy() {
                 created the catalogue and contributed selected product images, while the
                 external agency handled communication with the Malaysia KOLs.
               </p>
-            </div>
+            </BorderGlow>
           </div>
         </section>
 
@@ -210,18 +234,10 @@ export default function MidAutumnCaseStudy() {
               </p>
             </div>
             <div className="case-results-grid">
-              {results.map((item, index) => (
+              {results.map((item) => (
                 <BorderGlow
+                  {...caseCardGlow}
                   className="case-result"
-                  edgeSensitivity={30}
-                  glowColor="40 80 80"
-                  backgroundColor={index === 0 ? "#d9ff43" : "#070908"}
-                  borderRadius={22}
-                  glowRadius={32}
-                  glowIntensity={0.9}
-                  coneSpread={25}
-                  animated={false}
-                  colors={["#c084fc", "#f472b6", "#38bdf8"]}
                   key={item.label}
                 >
                   <strong>{item.value}</strong>
@@ -240,58 +256,66 @@ export default function MidAutumnCaseStudy() {
         <section className="case-section shell case-assets-section">
           <div className="case-section-label">04 / Campaign system</div>
           <div className="case-assets-grid">
-            <figure className="case-asset case-asset-wide">
-              <video
-                src="/projects/mid-autumn/campaign-motion.mp4"
-                poster="/projects/mid-autumn-2026.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="metadata"
-              />
-              <figcaption>
-                <span>Motion &amp; digital</span>
-                10-second campaign motion asset
-              </figcaption>
-            </figure>
+            <BorderGlow {...caseCardGlow} className="case-asset-glow case-asset-wide">
+              <figure className="case-asset">
+                <video
+                  src="/projects/mid-autumn/campaign-motion.mp4"
+                  poster="/projects/mid-autumn-2026.jpg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                />
+                <figcaption>
+                  <span>Motion &amp; digital</span>
+                  10-second campaign motion asset
+                </figcaption>
+              </figure>
+            </BorderGlow>
 
-            <figure className="case-asset case-asset-landscape">
-              <img
-                src="/projects/mid-autumn/retail-display.jpg"
-                alt="Landscape Mid-Autumn retail artwork with Peranakan shophouses"
-                loading="lazy"
-              />
-              <figcaption>
-                <span>Retail</span>
-                In-store display artwork
-              </figcaption>
-            </figure>
+            <BorderGlow {...caseCardGlow} className="case-asset-glow case-asset-landscape">
+              <figure className="case-asset">
+                <img
+                  src="/projects/mid-autumn/retail-display.jpg"
+                  alt="Landscape Mid-Autumn retail artwork with Peranakan shophouses"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <span>Retail</span>
+                  In-store display artwork
+                </figcaption>
+              </figure>
+            </BorderGlow>
 
-            <figure className="case-asset case-asset-portrait">
-              <img
-                src="/projects/mid-autumn/product-discovery.jpg"
-                alt="Mid-Autumn gift-set artwork with a QR code for product discovery"
-                loading="lazy"
-              />
-              <figcaption>
-                <span>Product discovery</span>
-                QR-led retail and digital artwork
-              </figcaption>
-            </figure>
+            <BorderGlow {...caseCardGlow} className="case-asset-glow case-asset-portrait">
+              <figure className="case-asset">
+                <img
+                  src="/projects/mid-autumn/product-discovery.jpg"
+                  alt="Mid-Autumn gift-set artwork with a QR code for product discovery"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <span>Product discovery</span>
+                  QR-led retail and digital artwork
+                </figcaption>
+              </figure>
+            </BorderGlow>
 
-            <figure className="case-asset case-asset-portrait">
-              <img
-                src="/projects/mid-autumn/greeting-card.jpg"
-                alt="Bilingual SUNS Mid-Autumn greeting card"
-                loading="lazy"
-              />
-              <figcaption>
-                <span>Corporate gifting</span>
-                Bilingual greeting card
-              </figcaption>
-            </figure>
+            <BorderGlow {...caseCardGlow} className="case-asset-glow case-asset-portrait">
+              <figure className="case-asset">
+                <img
+                  src="/projects/mid-autumn/greeting-card.jpg"
+                  alt="Bilingual SUNS Mid-Autumn greeting card"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <span>Corporate gifting</span>
+                  Bilingual greeting card
+                </figcaption>
+              </figure>
+            </BorderGlow>
           </div>
 
           <div className="case-audience-comparison">
@@ -300,42 +324,46 @@ export default function MidAutumnCaseStudy() {
               <h3>B2B vs B2C creative</h3>
             </div>
             <div className="case-audience-comparison-grid">
-              <figure>
-                <a
-                  href="/projects/mid-autumn/b2b-corporate-gifting.jpg"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Enlarge the B2B corporate gifting creative"
-                >
-                  <img
-                    src="/projects/mid-autumn/b2b-corporate-gifting.jpg"
-                    alt="SUNS Mid-Autumn B2B corporate gifting campaign creative"
-                    loading="lazy"
-                  />
-                </a>
-                <figcaption>
-                  <span>B2B / Corporate gifting</span>
-                  <p>Focused on corporate gifting and customisation for client and team gifting.</p>
-                </figcaption>
-              </figure>
-              <figure>
-                <a
-                  href="/projects/mid-autumn/b2c-personal-gifting.png"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Enlarge the B2C personal gifting creative"
-                >
-                  <img
-                    src="/projects/mid-autumn/b2c-personal-gifting.png"
-                    alt="SUNS Mid-Autumn B2C personal gifting campaign creative"
-                    loading="lazy"
-                  />
-                </a>
-                <figcaption>
-                  <span>B2C / Personal gifting</span>
-                  <p>Presented the collection for family and friends, as well as personal collecting.</p>
-                </figcaption>
-              </figure>
+              <BorderGlow {...caseCardGlow} className="case-comparison-card">
+                <figure>
+                  <a
+                    href="/projects/mid-autumn/b2b-corporate-gifting.jpg"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Enlarge the B2B corporate gifting creative"
+                  >
+                    <img
+                      src="/projects/mid-autumn/b2b-corporate-gifting.jpg"
+                      alt="SUNS Mid-Autumn B2B corporate gifting campaign creative"
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption>
+                    <span>B2B / Corporate gifting</span>
+                    <p>Focused on corporate gifting and customisation for client and team gifting.</p>
+                  </figcaption>
+                </figure>
+              </BorderGlow>
+              <BorderGlow {...caseCardGlow} className="case-comparison-card">
+                <figure>
+                  <a
+                    href="/projects/mid-autumn/b2c-personal-gifting.png"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Enlarge the B2C personal gifting creative"
+                  >
+                    <img
+                      src="/projects/mid-autumn/b2c-personal-gifting.png"
+                      alt="SUNS Mid-Autumn B2C personal gifting campaign creative"
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption>
+                    <span>B2C / Personal gifting</span>
+                    <p>Presented the collection for family and friends, as well as personal collecting.</p>
+                  </figcaption>
+                </figure>
+              </BorderGlow>
             </div>
           </div>
         </section>
@@ -350,16 +378,8 @@ export default function MidAutumnCaseStudy() {
             </p>
           </div>
           <BorderGlow
+            {...caseCardGlow}
             className="case-result case-creator-count"
-            edgeSensitivity={30}
-            glowColor="40 80 80"
-            backgroundColor="#d9ff43"
-            borderRadius={22}
-            glowRadius={32}
-            glowIntensity={0.9}
-            coneSpread={25}
-            animated={false}
-            colors={["#c084fc", "#f472b6", "#38bdf8"]}
           >
             <strong>6</strong>
             <span>Participating creators</span>
