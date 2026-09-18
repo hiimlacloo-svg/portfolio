@@ -10,6 +10,7 @@ type ProjectCase = {
   description: string;
   tags: string[];
   image: string;
+  fullImage?: string;
   alt: string;
 };
 
@@ -33,30 +34,39 @@ const projects: Project[] = [
     title: "Mid-Autumn 2026",
     subtitle: "Integrated Campaign System",
     description:
-      "An integrated festive campaign connecting paid media, social, creator content, retail and the company website across Singapore and Malaysia.",
-    tags: ["Integrated Campaign", "Paid Media", "Creator Marketing"],
+      "An integrated festive campaign across Singapore and Malaysia, featuring audience-specific messaging, digital artwork, retail materials and website content.",
+    tags: ["Campaign Design", "B2B & B2C Content", "Digital & Retail"],
     status: "Campaign completed · August 2026",
     details: [
-      ["Role", "Graphic Designer & Campaign Coordinator"],
+      ["Role", "Graphic Designer — Campaign Creative & Content"],
       ["Company", "SUNS Singapore"],
       ["Markets", "Singapore and Malaysia"],
       [
         "Scope",
-        "Social and paid-media planning, retail and digital artwork, website content and creator coordination",
+        "Audience-specific messaging, digital artwork, retail materials, Shopify blog content and creative testing",
       ],
       [
         "Collaboration",
-        "Internal teams, retail stakeholders and Malaysia creator partners",
+        "CMO-led direction, catalogue and product-image contributions from Calvin, and agency-managed Malaysia creator communication",
       ],
     ],
     className: "project-feature project-moon",
     href: "/projects/mid-autumn-2026",
     visual: (
       <div className="moon-scene">
-        <img
-          src="/projects/mid-autumn-2026.jpg"
-          alt="SUNS Mid-Autumn gift sets presented in a Peranakan-inspired moonlit setting"
-        />
+        <a
+          className="artwork-zoom"
+          href="/projects/mid-autumn-2026.jpg"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Enlarge the Mid-Autumn campaign artwork"
+        >
+          <img
+            src="/projects/mid-autumn-2026.jpg"
+            alt="SUNS Mid-Autumn gift sets presented in a Peranakan-inspired moonlit setting"
+            loading="lazy"
+          />
+        </a>
         <span className="moon-orbit">MID—AUTUMN / 2026</span>
       </div>
     ),
@@ -95,6 +105,7 @@ const projects: Project[] = [
           "Product Content",
         ],
         image: "/projects/murad-store-enhanced.png",
+        fullImage: "/projects/murad-store.jpg",
         alt: "Murad Shopee official store designed and launched by Lac",
       },
       {
@@ -109,12 +120,13 @@ const projects: Project[] = [
           "Platform Banner Upload",
         ],
         image: "/projects/hansgrohe-store.jpg",
+        fullImage: "/projects/hansgrohe-store.jpg",
         alt: "Hansgrohe marketplace store revamp designed by Lac",
       },
     ],
   },
   {
-    number: "03",
+    number: "05",
     title: "B2K Pet Product",
     subtitle: "E-commerce Design / 2021—23",
     description:
@@ -140,19 +152,15 @@ const projects: Project[] = [
           <small>Graphic Designer · Apr 2021—Feb 2023</small>
         </div>
         <figure className="pet-panel pet-panel-one">
-          <img
-            src="/projects/b2k-pronto-card-v2.jpg"
-            alt="Primal Pronto long-form product listing designed by Lac at B2K Pet Product"
-            loading="lazy"
-          />
+          <a className="artwork-zoom" href="/projects/b2k-pronto-card-v2.jpg" target="_blank" rel="noreferrer" aria-label="Enlarge the Primal Pronto product listing">
+            <img src="/projects/b2k-pronto-card-v2.jpg" alt="Primal Pronto long-form product listing designed by Lac at B2K Pet Product" loading="lazy" />
+          </a>
           <figcaption>Pronto / Freeze-dried raw</figcaption>
         </figure>
         <figure className="pet-panel pet-panel-two">
-          <img
-            src="/projects/b2k-toppers-card-v2.jpg"
-            alt="Primal Toppers long-form product listing designed by Lac at B2K Pet Product"
-            loading="lazy"
-          />
+          <a className="artwork-zoom" href="/projects/b2k-toppers-card-v2.jpg" target="_blank" rel="noreferrer" aria-label="Enlarge the Primal Toppers product listing">
+            <img src="/projects/b2k-toppers-card-v2.jpg" alt="Primal Toppers long-form product listing designed by Lac at B2K Pet Product" loading="lazy" />
+          </a>
           <figcaption>Toppers / Product education</figcaption>
         </figure>
       </div>
@@ -179,22 +187,28 @@ const projects: Project[] = [
     ],
     className: "project-highj",
     visual: (
-      <div className="jewel-scene" aria-hidden="true">
+      <div className="jewel-scene">
         <figure className="jewel-frame jewel-frame-main">
-          <img src="/projects/highj-paraiba-ring.jpg" alt="" loading="lazy" />
+          <a className="artwork-zoom" href="/projects/highj-paraiba-ring.jpg" target="_blank" rel="noreferrer" aria-label="Enlarge the Paraíba ring artwork">
+            <img src="/projects/highj-paraiba-ring.jpg" alt="Paraíba ring campaign artwork" loading="lazy" />
+          </a>
         </figure>
         <figure className="jewel-frame jewel-frame-earrings">
-          <img src="/projects/highj-paraiba-earrings.jpg" alt="" loading="lazy" />
+          <a className="artwork-zoom" href="/projects/highj-paraiba-earrings.jpg" target="_blank" rel="noreferrer" aria-label="Enlarge the Paraíba earrings artwork">
+            <img src="/projects/highj-paraiba-earrings.jpg" alt="Paraíba earrings campaign artwork" loading="lazy" />
+          </a>
         </figure>
         <figure className="jewel-frame jewel-frame-lifestyle">
-          <img src="/projects/highj-paraiba-lifestyle.jpg" alt="" loading="lazy" />
+          <a className="artwork-zoom" href="/projects/highj-paraiba-lifestyle.jpg" target="_blank" rel="noreferrer" aria-label="Enlarge the Paraíba lifestyle artwork">
+            <img src="/projects/highj-paraiba-lifestyle.jpg" alt="Paraíba jewellery lifestyle artwork" loading="lazy" />
+          </a>
         </figure>
         <span className="jewel-note">PARAIBA / SOCIAL CONTENT</span>
       </div>
     ),
   },
   {
-    number: "05",
+    number: "03",
     title: "SUNS × SEIBU TRX",
     subtitle: "Retail Awareness & KOL",
     description:
@@ -218,24 +232,24 @@ const projects: Project[] = [
       <div className="seibu-scene">
         <span className="seibu-grid" />
         <figure className="seibu-photo seibu-photo-one">
-          <img
-            src="/projects/seibu-ikebana-host.jpeg"
-            alt="Ikebana demonstration at the SUNS concept store in SEIBU TRX"
-            loading="lazy"
-          />
+          <a className="artwork-zoom" href="/projects/seibu-ikebana-host.jpeg" target="_blank" rel="noreferrer" aria-label="Enlarge the SEIBU TRX ikebana demonstration photograph">
+            <img src="/projects/seibu-ikebana-host.jpeg" alt="Ikebana demonstration at the SUNS concept store in SEIBU TRX" loading="lazy" />
+          </a>
         </figure>
         <figure className="seibu-photo seibu-photo-two">
-          <img
-            src="/projects/seibu-ikebana-event.jpeg"
-            alt="Guests attending the SUNS ikebana event at SEIBU TRX"
-            loading="lazy"
-          />
+          <a className="artwork-zoom" href="/projects/seibu-ikebana-event.jpeg" target="_blank" rel="noreferrer" aria-label="Enlarge the SEIBU TRX event photograph">
+            <img src="/projects/seibu-ikebana-event.jpeg" alt="Guests attending the SUNS ikebana event at SEIBU TRX" loading="lazy" />
+          </a>
         </figure>
         <span className="seibu-caption">Singapore ↔ Kuala Lumpur</span>
       </div>
     ),
   },
 ];
+
+const orderedProjects = [...projects].sort(
+  (first, second) => Number(first.number) - Number(second.number),
+);
 
 const capabilities = [
   {
@@ -259,7 +273,7 @@ const capabilities = [
   {
     index: "04",
     title: "Cross-functional Collaboration",
-    copy: "Translating briefs and moving parts into practical decks, toolkits, timelines and deliverables for teams across Singapore, Malaysia and China.",
+    copy: "Leading a regional design team and translating briefs into practical decks, toolkits, timelines and deliverables across Singapore, Malaysia, the Philippines and China.",
     note: "Make work move",
   },
 ];
@@ -278,19 +292,19 @@ const skillGroups = [
     title: "E-commerce",
     items: [
       "Shopify",
-      "Shopee Seller Centre",
-      "Lazada Seller Center",
-      "Product listing and storefront uploads",
+      "Shopee & Lazada Seller Centres",
+      "TikTok Shop",
+      "Product listing & storefront management",
+      "E-commerce promotion planning",
     ],
   },
   {
     title: "Content & Marketing",
     items: [
-      "Social media content design",
+      "Social media content planning & design",
       "Campaign asset adaptation",
-      "Basic paid-media creative support",
+      "Paid-media creative development and testing",
       "KOL coordination",
-      "Content planning",
     ],
   },
   {
@@ -324,22 +338,31 @@ export default function Home() {
           <div className="hero-copy">
             <div className="hero-kicker">
               <span className="status-dot" />
-              Hello, I’m Lac — a Singapore-based visual designer
+              Lac Loo · Singapore
             </div>
             <h1>
-              Ideas, shaped into
-              <span>
-                <em>visual stories.</em>
-              </span>
+              Visual design for brands,
+              <span>campaigns and e-commerce.</span>
             </h1>
             <p className="hero-summary">
-              A graphic and visual designer experienced in e-commerce campaigns,
-              social content, retail collateral and hands-on campaign execution
-              across Singapore and regional markets.
+              I’m Lac, a Singapore-based graphic designer working across campaign
+              design, social content, e-commerce and retail. My experience also
+              includes campaign planning, paid-media execution and creator
+              coordination.
             </p>
-            <a className="hero-cta" href="#work">
-              View selected projects <span>→</span>
-            </a>
+            <div className="hero-actions" aria-label="Portfolio actions">
+              <a className="hero-cta" href="#work">
+                View projects <span>→</span>
+              </a>
+              <a
+                className="hero-cta hero-cta-secondary"
+                href="/Lac-Resume-2026.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View résumé <span>↗</span>
+              </a>
+            </div>
           </div>
 
           <div className="hero-collage" aria-label="Lac's creative disciplines">
@@ -395,15 +418,186 @@ export default function Home() {
         </div>
 
         <div className="hero-meta">
-          <span>Portfolio / 2023—26</span>
-          <span className="hero-meta-center">Ideas → Systems → Real-world moments</span>
+          <span>Selected work / 2021—2026</span>
+          <span className="hero-meta-center">5+ years across campaigns, e-commerce, social and retail</span>
           <span>Scroll to explore ↓</span>
+        </div>
+      </section>
+
+      <section className="work-section section-space shell" id="work">
+        <div className="section-heading work-heading">
+          <p>01 / Selected work</p>
+          <h2>A selection of projects built across screen, store and story.</h2>
+          <span>Selected across agency, in-house and early-career chapters.</span>
+        </div>
+
+        <div className="projects-grid">
+          {orderedProjects.map((project) => {
+            if (project.cases) {
+              return (
+              <section
+                className="commerce-project"
+                id={`project-${project.number}`}
+                key={project.number}
+              >
+                <div className="commerce-project-heading">
+                  <div className="project-index">{project.number}</div>
+                  <div className="project-copy">
+                    <p>{project.subtitle}</p>
+                    <h3>{project.title}</h3>
+                    <span>{project.description}</span>
+                  </div>
+                  <span className="commerce-project-note">03 selected cases</span>
+                </div>
+                <div className="commerce-cases">
+                  {project.cases.map((item, index) => (
+                    <SpotlightCard
+                      className="commerce-case"
+                      spotlightColor="rgba(0, 229, 255, 0.2)"
+                      key={item.title}
+                    >
+                      <figure className="commerce-case-media">
+                        <a className="artwork-zoom" href={item.image} target="_blank" rel="noreferrer" aria-label={`Enlarge ${item.title} artwork`}>
+                          <img src={item.image} alt={item.alt} loading="lazy" />
+                        </a>
+                        <figcaption>
+                          {item.brand} / 0{index + 1}
+                        </figcaption>
+                      </figure>
+                      <div className="commerce-case-body">
+                        <span className="commerce-case-index">0{index + 1}</span>
+                        <h4>{item.title}</h4>
+                        <p>{item.description}</p>
+                        {item.fullImage && (
+                          <a
+                            className="commerce-full-design"
+                            href={item.fullImage}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`View the full ${item.title} design`}
+                          >
+                            View full design <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
+                        <div className="project-tags commerce-case-tags">
+                          {item.tags.map((tag) => (
+                            <span key={tag}>{tag}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </SpotlightCard>
+                  ))}
+                </div>
+              </section>
+              );
+            }
+
+            const card = (
+              <SpotlightCard
+                className={`project-card ${project.className ?? ""}`}
+                spotlightColor="rgba(0, 229, 255, 0.2)"
+                id={`project-${project.number}`}
+                key={project.number}
+              >
+                <div className="project-visual">{project.visual}</div>
+                <div className="project-content">
+                  <div className="project-index">{project.number}</div>
+                  <div className="project-copy">
+                    <p>{project.subtitle}</p>
+                    <h3>{project.title}</h3>
+                    <span>{project.description}</span>
+                    {project.href && (
+                      <a className="project-case-link" href={project.href}>
+                        View case study <b>↗</b>
+                      </a>
+                    )}
+                  </div>
+                  <div className="project-tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                {project.status && (
+                  <div className="project-status">
+                    <span className="status-dot" />
+                    {project.status}
+                  </div>
+                )}
+                {project.details && (
+                  <dl className="project-details">
+                    {project.details.map(([label, value]) => (
+                      <div key={label}>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </SpotlightCard>
+            );
+
+            return card;
+          })}
+        </div>
+        <div className="work-archive-action">
+          <a
+            className="work-archive-link"
+            href="https://drive.google.com/drive/folders/14-jEDAF55zKP09cOZjradfCOoES9XAdM?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View additional work <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section className="capabilities-section section-space shell" id="capabilities">
+        <div className="section-heading capabilities-heading">
+          <p>02 / Capabilities</p>
+          <h2>What I bring to a creative team.</h2>
+        </div>
+        <div className="capability-grid">
+          {capabilities.map((item) => {
+            const content = (
+              <>
+                <span className="capability-index">{item.index}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
+                <span className="capability-note">{item.note}</span>
+              </>
+            );
+
+            return item.index === "03" ? (
+              <article className="capability-card" key={item.index}>
+                {content}
+              </article>
+            ) : (
+              <BorderGlow
+                className="capability-card"
+                edgeSensitivity={30}
+                glowColor="40 80 80"
+                backgroundColor="#120F17"
+                borderRadius={28}
+                glowRadius={40}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={false}
+                colors={["#c084fc", "#f472b6", "#38bdf8"]}
+                key={item.index}
+              >
+                {content}
+              </BorderGlow>
+            );
+          })}
         </div>
       </section>
 
       <section className="about-section section-space shell" id="about">
         <div className="section-heading">
-          <p>01 / Profile</p>
+          <p>03 / Experience &amp; About</p>
           <h2>From creative concept to final rollout, I design with execution in mind.</h2>
         </div>
 
@@ -427,34 +621,28 @@ export default function Home() {
           >
             <p className="eyebrow">About Lac</p>
             <h3>
-              Designer by craft.<br />
-              Marketer by curiosity.<br />
-              Problem-solver by nature.
+              Design craft.<br />
+              Campaign thinking.<br />
+              Hands-on execution.
             </h3>
             <p className="intro-copy">
-              I’m a Singapore-based graphic designer with experience across
-              e-commerce, social media, retail and campaign execution. I
-              currently work at <strong>SUNS Singapore</strong>, where I develop
-              visual assets and support campaigns across digital platforms,
-              physical retail spaces and regional markets.
+              At <strong>SUNS Singapore</strong>, I develop campaign visuals,
+              social content, e-commerce assets, retail collateral and event
+              materials. I also support campaign planning, paid-media execution
+              and creator coordination across Singapore and Malaysia.
             </p>
             <p className="intro-copy">
-              Previously, I worked on e-commerce storefronts for more than 16
-              brands including innisfree, Murad and hansgrohe, covering campaign
-              banners, store design, platform banner uploads and store revamps across
-              Shopee, Lazada and Shopify.
+              Previously at YSG, I worked on e-commerce storefronts for more than
+              16 brands including innisfree, Murad and hansgrohe. My work covered
+              campaign banners, store design, product content, platform uploads
+              and store revamps across Shopee, Lazada, Shopify and TikTok Shop.
             </p>
             <p className="intro-copy">
-              I enjoy turning ideas into clear, practical visual systems—and
-              working closely with marketing, retail and regional teams to bring
-              them to life.
+              As Team Lead, I coordinated briefs and delivery with designers
+              across Singapore, Malaysia, the Philippines and China.
             </p>
             <div className="intro-links">
-              <a
-                href="mailto:hi.imlacloo@gmail.com"
-              >
-                Contact ↗
-              </a>
+              <a href="mailto:hi.imlacloo@gmail.com">Contact ↗</a>
               <a
                 href="/Lac-Resume-2026.pdf"
                 target="_blank"
@@ -469,10 +657,10 @@ export default function Home() {
             className="bento-card metric-card metric-dark"
             spotlightColor="rgba(0, 229, 255, 0.2)"
           >
-            <span className="metric-number">03</span>
+            <span className="metric-number">04</span>
             <div>
               <strong>Markets</strong>
-              <p>Singapore · Malaysia · China</p>
+              <p>Singapore · Malaysia · Philippines · China</p>
             </div>
           </SpotlightCard>
 
@@ -523,10 +711,9 @@ export default function Home() {
                     Visual Merchandiser → Team Lead, Visual Merchandising &amp; Engagement
                   </p>
                   <p className="experience-summary">
-                    Designed and managed e-commerce storefront content for
-                    regional brands across Shopee, Lazada, Shopify and TikTok,
-                    while coordinating briefs, uploads, store revamps and team
-                    delivery.
+                    Led regional design delivery and managed e-commerce
+                    storefront content across Shopee, Lazada, Shopify and TikTok
+                    Shop, coordinating briefs, uploads and store revamps.
                   </p>
                 </div>
                 <span>Mar 2023—Jun 2025</span>
@@ -555,175 +742,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="work-section section-space shell" id="work">
-        <div className="section-heading work-heading">
-          <p>02 / Selected work</p>
-          <h2>A selection of projects built across screen, store and story.</h2>
-          <span>Selected across agency, in-house and early-career chapters.</span>
-        </div>
-
-        <div className="projects-grid">
-          {projects.map((project) => {
-            if (project.cases) {
-              return (
-              <section
-                className="commerce-project"
-                id={`project-${project.number}`}
-                key={project.number}
-              >
-                <div className="commerce-project-heading">
-                  <div className="project-index">{project.number}</div>
-                  <div className="project-copy">
-                    <p>{project.subtitle}</p>
-                    <h3>{project.title}</h3>
-                    <span>{project.description}</span>
-                  </div>
-                  <span className="commerce-project-note">03 selected cases</span>
-                </div>
-                <div className="commerce-cases">
-                  {project.cases.map((item, index) => (
-                    <SpotlightCard
-                      className="commerce-case"
-                      spotlightColor="rgba(0, 229, 255, 0.2)"
-                      key={item.title}
-                    >
-                      <figure className="commerce-case-media">
-                        <img src={item.image} alt={item.alt} loading="lazy" />
-                        <figcaption>
-                          {item.brand} / 0{index + 1}
-                        </figcaption>
-                      </figure>
-                      <div className="commerce-case-body">
-                        <span className="commerce-case-index">0{index + 1}</span>
-                        <h4>{item.title}</h4>
-                        <p>{item.description}</p>
-                        <div className="project-tags commerce-case-tags">
-                          {item.tags.map((tag) => (
-                            <span key={tag}>{tag}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </SpotlightCard>
-                  ))}
-                </div>
-              </section>
-              );
-            }
-
-            const card = (
-              <SpotlightCard
-                className={`project-card ${project.className ?? ""}`}
-                spotlightColor="rgba(0, 229, 255, 0.2)"
-                id={`project-${project.number}`}
-                key={project.number}
-              >
-                <div className="project-visual">{project.visual}</div>
-                <div className="project-content">
-                  <div className="project-index">{project.number}</div>
-                  <div className="project-copy">
-                    <p>{project.subtitle}</p>
-                    <h3>{project.title}</h3>
-                    <span>{project.description}</span>
-                    {project.href && (
-                      <span className="project-case-link">
-                        View case study <b>↗</b>
-                      </span>
-                    )}
-                  </div>
-                  <div className="project-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-                {project.status && (
-                  <div className="project-status">
-                    <span className="status-dot" />
-                    {project.status}
-                  </div>
-                )}
-                {project.details && (
-                  <dl className="project-details">
-                    {project.details.map(([label, value]) => (
-                      <div key={label}>
-                        <dt>{label}</dt>
-                        <dd>{value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                )}
-              </SpotlightCard>
-            );
-
-            return project.href ? (
-              <a
-                className="project-card-link"
-                href={project.href}
-                aria-label={`View ${project.title} case study`}
-                key={project.number}
-              >
-                {card}
-              </a>
-            ) : (
-              card
-            );
-          })}
-        </div>
-        <div className="work-archive-action">
-          <a
-            className="work-archive-link"
-            href="https://drive.google.com/drive/folders/14-jEDAF55zKP09cOZjradfCOoES9XAdM?usp=sharing"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View additional work <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-
-      <section className="capabilities-section section-space shell" id="capabilities">
-        <div className="section-heading capabilities-heading">
-          <p>03 / Capabilities</p>
-          <h2>What I bring to a creative team.</h2>
-        </div>
-        <div className="capability-grid">
-          {capabilities.map((item) => {
-            const content = (
-              <>
-                <span className="capability-index">{item.index}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </div>
-                <span className="capability-note">{item.note} ↗</span>
-              </>
-            );
-
-            return item.index === "03" ? (
-              <article className="capability-card" key={item.index}>
-                {content}
-              </article>
-            ) : (
-              <BorderGlow
-                className="capability-card"
-                edgeSensitivity={30}
-                glowColor="40 80 80"
-                backgroundColor="#120F17"
-                borderRadius={28}
-                glowRadius={40}
-                glowIntensity={1}
-                coneSpread={25}
-                animated={false}
-                colors={["#c084fc", "#f472b6", "#38bdf8"]}
-                key={item.index}
-              >
-                {content}
-              </BorderGlow>
-            );
-          })}
-        </div>
-      </section>
-
       <section className="skills-section section-space shell" id="skills">
         <div className="section-heading skills-heading">
           <p>04 / Tools &amp; skills</p>
@@ -749,8 +767,8 @@ export default function Home() {
       <footer className="contact-section" id="contact">
         <div className="contact-inner shell">
           <div className="contact-top">
-            <span>Open to graphic design and visual design opportunities in Singapore</span>
-            <span>Full-time + selected freelance</span>
+            <span>Open to design and marketing opportunities in Singapore, with a focus on campaigns, content and e-commerce.</span>
+            <span>Full-time roles · Selective freelance availability</span>
           </div>
           <div className="contact-main contact-main-career">
             <p>Let’s create work that looks good—</p>
@@ -762,7 +780,7 @@ export default function Home() {
             </a>
           </div>
           <p className="contact-availability">
-            Available for full-time opportunities and selected freelance projects.
+            Prioritising full-time opportunities; selectively available for freelance projects.
           </p>
           <div className="contact-details" aria-label="Contact details">
             <a href="mailto:hi.imlacloo@gmail.com">
@@ -779,7 +797,7 @@ export default function Home() {
             </a>
           </div>
           <div className="contact-bottom">
-            <div className="footer-wordmark">LAC LOO®</div>
+            <div className="footer-wordmark">LAC LOO</div>
             <div className="footer-links">
               <a href="mailto:hi.imlacloo@gmail.com">Email</a>
               <a

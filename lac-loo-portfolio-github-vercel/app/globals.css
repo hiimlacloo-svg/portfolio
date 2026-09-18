@@ -259,6 +259,17 @@ a {
   letter-spacing: -.015em;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.hero-actions .hero-cta {
+  margin: 0;
+}
+
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -288,6 +299,18 @@ a {
 
 .hero-cta:hover span {
   transform: translateX(4px);
+}
+
+.hero-cta-secondary {
+  border-color: rgba(23, 24, 21, .28);
+  background: rgba(255, 255, 255, .45);
+}
+
+.hero-cta-secondary:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 10px 24px rgba(23, 24, 21, .16);
 }
 
 .hero-collage {
@@ -961,11 +984,27 @@ a {
   transform: translate(3px, -3px);
 }
 
+.project-case-link:hover b {
+  transform: translate(3px, -3px);
+}
+
 .project-card {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) + 4px);
   background: rgba(255,255,255,.38);
+}
+
+.artwork-zoom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.artwork-zoom:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: -5px;
 }
 
 /* Layout-only sizing for the single React Bits SpotlightCard component. */
@@ -1259,6 +1298,29 @@ a {
 .commerce-case-tags {
   justify-content: flex-start;
   margin-top: auto;
+}
+
+.commerce-full-design {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 10px 14px;
+  border: 1px solid rgba(217, 255, 67, .42);
+  border-radius: 999px;
+  color: var(--lime);
+  font-size: .58rem;
+  font-weight: 760;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.commerce-full-design:hover {
+  border-color: var(--lime);
+  background: var(--lime);
+  color: var(--ink);
 }
 
 .moon-scene,
@@ -1958,6 +2020,7 @@ a:focus-visible {
   .contact-pill,
   .hero-cta,
   .hero-cta span,
+  .artwork-zoom img,
   .contact-main a,
   .contact-main a > span,
   .contact-details a {
@@ -2879,6 +2942,61 @@ a:focus-visible {
   margin-top: 20px;
 }
 
+.case-brief-subsection {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.case-brief-subsection > h3 {
+  margin: 0;
+  color: var(--lime);
+  font-size: .62rem;
+  font-weight: 760;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.case-brief-columns,
+.case-approach-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.case-brief-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-approach-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-brief-columns article,
+.case-approach-grid article {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(7, 9, 8, .46);
+}
+
+.case-brief-columns h4,
+.case-approach-grid h4 {
+  margin: 0 0 18px;
+  font-size: 1.18rem;
+  font-weight: 560;
+  letter-spacing: -.035em;
+}
+
+.case-brief-columns p,
+.case-approach-grid p {
+  max-width: none;
+  margin: 0;
+  font-size: .78rem;
+  line-height: 1.62;
+}
+
 .case-contribution-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2920,6 +3038,34 @@ a:focus-visible {
   line-height: 1.6;
 }
 
+.case-contribution-content {
+  min-width: 0;
+}
+
+.case-collaboration {
+  display: grid;
+  grid-template-columns: .65fr 1.35fr;
+  gap: 36px;
+  margin-top: 34px;
+  padding: 28px 0 6px;
+  border-top: 1px solid var(--line);
+}
+
+.case-collaboration h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 560;
+  letter-spacing: -.045em;
+}
+
+.case-collaboration p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .82rem;
+  line-height: 1.65;
+}
+
 .case-results-section > div:last-child {
   min-width: 0;
 }
@@ -2938,8 +3084,16 @@ a:focus-visible {
 
 .case-results-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 10px;
+}
+
+.case-results-grid .case-result:nth-child(-n+3) {
+  grid-column: span 2;
+}
+
+.case-results-grid .case-result:nth-child(n+4) {
+  grid-column: span 3;
 }
 
 .case-result {
@@ -2953,8 +3107,14 @@ a:focus-visible {
   background: rgba(7, 9, 8, .68);
 }
 
-.case-result:nth-child(1),
-.case-result:nth-child(6) {
+.border-glow.case-result .border-glow__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.case-result:nth-child(1) {
   border-color: transparent;
   background: var(--lime);
   color: var(--ink);
@@ -3040,8 +3200,106 @@ a:focus-visible {
   margin-bottom: 7px;
 }
 
+.case-audience-comparison {
+  grid-column: 2;
+  margin-top: 64px;
+}
+
+.case-audience-comparison-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.case-audience-comparison-heading > span {
+  color: var(--lime);
+  font-size: .62rem;
+  font-weight: 760;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.case-audience-comparison-heading h3 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 3.2rem);
+  font-weight: 520;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.case-audience-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.case-audience-comparison-grid figure {
+  min-width: 0;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface-deep);
+}
+
+.case-audience-comparison-grid figure > a {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #050706;
+}
+
+.case-audience-comparison-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+
+.case-audience-comparison-grid a:hover img {
+  transform: scale(1.015);
+}
+
+.case-audience-comparison-grid figcaption {
+  padding: 20px;
+}
+
+.case-audience-comparison-grid figcaption span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--lime);
+  font-size: .62rem;
+  font-weight: 760;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.case-audience-comparison-grid figcaption p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
 .case-creators-section {
   grid-template-columns: .8fr 1.1fr 1.1fr;
+}
+
+.case-creators-copy {
+  grid-column: 2;
+}
+
+.case-creator-count {
+  grid-column: 2;
+  grid-row: 2;
+  min-height: 210px;
+  margin-top: 30px;
+  color: var(--ink);
 }
 
 .case-creators-copy h2 {
@@ -3049,6 +3307,8 @@ a:focus-visible {
 }
 
 .case-creator-links {
+  grid-column: 3;
+  grid-row: 1 / span 2;
   border-top: 1px solid var(--line);
 }
 
@@ -3159,12 +3419,26 @@ a:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .case-results-grid .case-result:nth-child(n) {
+    grid-column: auto;
+  }
+
+  .case-audience-comparison {
+    grid-column: 2;
+  }
+
   .case-creators-section {
     grid-template-columns: .55fr 1.45fr;
   }
 
+  .case-creators-copy,
+  .case-creator-count,
   .case-creator-links {
     grid-column: 2;
+    grid-row: auto;
+  }
+
+  .case-creator-links {
     margin-top: 30px;
   }
 }
@@ -3236,9 +3510,20 @@ a:focus-visible {
   }
 
   .case-contribution-grid,
+  .case-brief-columns,
+  .case-approach-grid,
   .case-results-grid,
   .case-assets-grid {
     grid-template-columns: 1fr;
+  }
+
+  .case-brief-subsection {
+    margin-top: 54px;
+  }
+
+  .case-brief-columns article,
+  .case-approach-grid article {
+    padding: 20px;
   }
 
   .case-contribution,
@@ -3250,6 +3535,12 @@ a:focus-visible {
 
   .case-contribution > span {
     margin-bottom: 50px;
+  }
+
+  .case-collaboration {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 28px;
   }
 
   .case-result {
@@ -3267,6 +3558,25 @@ a:focus-visible {
   }
 
   .case-creator-links {
+    grid-column: 1;
+  }
+
+  .case-audience-comparison {
+    grid-column: 1;
+    margin-top: 48px;
+  }
+
+  .case-audience-comparison-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .case-audience-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-creators-copy,
+  .case-creator-count {
     grid-column: 1;
   }
 

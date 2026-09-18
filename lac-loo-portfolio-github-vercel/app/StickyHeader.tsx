@@ -7,9 +7,9 @@ export default function StickyHeader() {
 
   useEffect(() => {
     const updateHeader = () => {
-      const aboutSection = document.getElementById("about");
-      const hasReachedSecondSection = aboutSection
-        ? aboutSection.getBoundingClientRect().top <= 96
+      const workSection = document.getElementById("work");
+      const hasReachedSecondSection = workSection
+        ? workSection.getBoundingClientRect().top <= 96
         : window.scrollY >= window.innerHeight;
 
       setIsScrolled(hasReachedSecondSection);
@@ -34,8 +34,8 @@ export default function StickyHeader() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
           <a href="#capabilities">Capabilities</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
         <div className="header-meta">

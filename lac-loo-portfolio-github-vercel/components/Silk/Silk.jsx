@@ -2,7 +2,14 @@
 
 /* eslint-disable react/no-unknown-property */
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Color } from "three";
 
 const hexToNormalizedRGB = (hex) => {
@@ -68,11 +75,11 @@ void main() {
 }
 `;
 
-const SilkPlane = forwardRef(function SilkPlane({ uniforms }, ref) {
+const SilkPlane = forwardRef(function SilkPlane({ uniforms, animate }, ref) {
   const { viewport } = useThree();
 
   useLayoutEffect(() => {
-    if (ref.current) {
+    if (animate && ref.current) {
       ref.current.scale.set(viewport.width, viewport.height, 1);
     }
   }, [ref, viewport]);
@@ -105,6 +112,17 @@ const Silk = ({
   rotation = 0,
 }) => {
   const meshRef = useRef();
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
   const uniforms = useMemo(
     () => ({
       uSpeed: { value: speed },
@@ -118,8 +136,8 @@ const Silk = ({
   );
 
   return (
-    <Canvas dpr={[1, 2]} frameloop="always">
-      <SilkPlane ref={meshRef} uniforms={uniforms} />
+    <Canvas dpr={reducedMotion ? 1 : [1, 2]} frameloop={reducedMotion ? "demand" : "always"}>
+      <SilkPlane ref={meshRef} uniforms={uniforms} animate={!reducedMotion} />
     </Canvas>
   );
 };
