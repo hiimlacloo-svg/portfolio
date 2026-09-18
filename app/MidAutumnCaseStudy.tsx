@@ -10,33 +10,23 @@ const creatorPosts = [
 const contributions = [
   {
     number: "01",
-    title: "Campaign & social planning",
-    copy: "Built the rollout plan and independently managed the social workflow from content direction and format planning through artwork, posting and execution.",
+    title: "Audience-specific creative",
+    copy: "Developed separate B2B and B2C messaging and artwork, adapting the campaign for corporate gifting, personal gifting and collectors.",
   },
   {
     number: "02",
-    title: "Paid-media planning",
-    copy: "Planned the first campaign flights across Meta, Google Search and LinkedIn, then developed the creative adaptations needed for each channel.",
+    title: "Digital campaign assets",
+    copy: "Designed the campaign’s digital artwork and prepared creative variations for testing across advertising and social placements.",
   },
   {
     number: "03",
-    title: "Retail & digital artwork",
-    copy: "Designed a connected set of campaign assets for retail displays, social placements, web content, corporate gifting and product discovery.",
+    title: "Retail campaign artwork",
+    copy: "Designed A2 foamboard displays and A4 posters, including promotional artwork for the TAKA Mid-Autumn booth, carrying the campaign identity into physical retail.",
   },
   {
     number: "04",
-    title: "Creator activation",
-    copy: "Coordinated six Malaysia-based content creators and translated the campaign story into clear, platform-ready creator deliverables.",
-  },
-  {
-    number: "05",
     title: "Website content",
-    copy: "Created the company website blog content and supporting campaign visuals to connect paid and social traffic with the product story.",
-  },
-  {
-    number: "06",
-    title: "Hands-on rollout",
-    copy: "Carried the campaign across formats and markets while keeping the visual system consistent from planning to final delivery.",
+    copy: "Created Shopify blog content and supporting campaign visuals to introduce the collection and support product discovery.",
   },
 ];
 
@@ -46,7 +36,7 @@ const results = [
   { value: "1.8K", label: "Meta landing-page views" },
   { value: "18K", label: "Google Search impressions" },
   { value: "658", label: "Google Search clicks" },
-  { value: "06", label: "Malaysia creators activated" },
+  { value: "06", label: "Malaysia creators in the campaign" },
 ];
 
 export default function MidAutumnCaseStudy() {
@@ -87,7 +77,7 @@ export default function MidAutumnCaseStudy() {
           <div className="case-hero-meta">
             <div>
               <span>Role</span>
-              <strong>Graphic Designer &amp;<br />Campaign Coordinator</strong>
+              <strong>Graphic Designer —<br />Campaign Creative &amp; Content</strong>
             </div>
             <div>
               <span>Company</span>
@@ -99,7 +89,7 @@ export default function MidAutumnCaseStudy() {
             </div>
             <div>
               <span>Scope</span>
-              <strong>Planning · Design · Paid · Creators · Web</strong>
+              <strong>Audience-specific messaging · Digital artwork · Retail materials · Shopify content · Creative testing</strong>
             </div>
           </div>
 
@@ -121,23 +111,91 @@ export default function MidAutumnCaseStudy() {
               social media, paid channels and regional creator content.
             </p>
             <p>
-              My role connected the planning and making: I translated the campaign into
-              a practical channel rollout, designed the visual assets, supported the paid
-              launches and coordinated the Malaysia creator activation.
+              Working from the CMO’s campaign direction, I developed audience-specific
+              messaging, digital artwork, retail materials and Shopify blog content. My
+              contribution focused on translating the campaign direction into consistent
+              creative across online and physical touchpoints.
             </p>
+
+            <div className="case-brief-subsection">
+              <h3>Audience &amp; objective</h3>
+              <div className="case-brief-columns">
+                <article>
+                  <h4>Audience</h4>
+                  <p>
+                    Corporate buyers exploring customised Mid-Autumn gifts for clients
+                    and teams, and individual shoppers buying gifts for family and friends
+                    or collecting the sets themselves. The campaign covered Singapore and
+                    Malaysia through digital, retail and creator touchpoints.
+                  </p>
+                </article>
+                <article>
+                  <h4>Objective</h4>
+                  <p>
+                    Build awareness of SUNS and its Mid-Autumn collection, support product
+                    discovery and establish an initial awareness and traffic baseline for
+                    future campaign comparisons.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div className="case-brief-subsection">
+              <h3>Campaign approach</h3>
+              <div className="case-approach-grid">
+                <article>
+                  <h4>Channel direction</h4>
+                  <p>
+                    The CMO selected the channels to build awareness of SUNS. LinkedIn
+                    focused on corporate gifting and customisation, while Meta supported
+                    brand familiarity and targeted reach. Instagram content also kept
+                    existing followers informed about the collection.
+                  </p>
+                </article>
+                <article>
+                  <h4>Two audiences, two creative directions</h4>
+                  <p>
+                    I developed separate messaging and artwork for B2B and B2C audiences.
+                    The B2B version focused on corporate gifting and customisation; the B2C
+                    version presented the collection as gifts for family and friends, as
+                    well as pieces to collect personally.
+                  </p>
+                </article>
+                <article>
+                  <h4>Testing from a new baseline</h4>
+                  <p>
+                    With no previous campaign data available to me, I tested variations in
+                    artwork, captions, keywords and scheduling to establish an initial
+                    baseline for future campaigns.
+                  </p>
+                </article>
+              </div>
+            </div>
           </div>
         </section>
 
         <section className="case-section shell">
           <div className="case-section-label">02 / My contribution</div>
-          <div className="case-contribution-grid">
-            {contributions.map((item) => (
-              <article className="case-contribution" key={item.number}>
-                <span>{item.number}</span>
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </article>
-            ))}
+          <div className="case-contribution-content">
+            <div className="case-contribution-grid">
+              {contributions.map((item) => (
+                <article className="case-contribution" key={item.number}>
+                  <span>{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </article>
+              ))}
+            </div>
+            <div className="case-collaboration">
+              <h3>Team collaboration</h3>
+              <p>
+                Wells, the CMO, provided the initial campaign direction and selected the
+                channels. I translated that direction into the artwork and content
+                described above. Calvin created the catalogue and contributed selected
+                product images, while the external agency handled communication with the
+                Malaysia KOLs.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -145,11 +203,12 @@ export default function MidAutumnCaseStudy() {
           <div className="case-section-label">03 / Selected results</div>
           <div>
             <div className="case-results-intro">
-              <h2>The first paid-campaign baseline for the company account.</h2>
+              <h2>An initial reporting baseline for future campaigns.</h2>
               <p>
-                With no historical campaign benchmark, the first objective was to build
-                a measurable starting point across awareness and traffic. Results below
-                are rounded and reported without commercially sensitive account details.
+                No historical campaign reports were available to me for comparison.
+                These results provide an initial reference point for awareness and
+                traffic reporting. Figures are rounded and reflect the campaign as a
+                whole.
               </p>
             </div>
             <div className="case-results-grid">
@@ -229,11 +288,11 @@ export default function MidAutumnCaseStudy() {
         <section className="case-section shell case-creators-section">
           <div className="case-section-label">05 / Live creator content</div>
           <div className="case-creators-copy">
-            <h2>Six creators activated in Malaysia.</h2>
+            <h2>Malaysia creator activity</h2>
             <p>
-              A regional creator layer extended the campaign beyond owned channels.
-              Four selected live examples are linked below; creator fees and internal
-              commercial terms are not disclosed.
+              The campaign included six Malaysia-based creators, with communication
+              handled by the external agency. Four selected live examples are linked
+              below.
             </p>
           </div>
           <div className="case-creator-links">
@@ -250,15 +309,16 @@ export default function MidAutumnCaseStudy() {
           <div className="case-section-label">06 / What this demonstrates</div>
           <div className="case-outcome-copy">
             <p>
-              I can move between strategy and execution—building a usable campaign plan,
-              designing the visual system, adapting it across channels and helping the
-              work reach the market.
+              This project demonstrates my ability to translate a marketing brief into
+              audience-specific messaging and consistent creative across digital and
+              retail. It also shows how I work within a wider campaign team and use
+              testing to build an initial evidence base for future decisions.
             </p>
             <div className="case-outcome-tags" aria-label="Project strengths">
-              <span>End-to-end ownership</span>
-              <span>Cross-market coordination</span>
-              <span>Campaign design systems</span>
-              <span>Performance-minded execution</span>
+              <span>B2B &amp; B2C creative</span>
+              <span>Digital &amp; retail design</span>
+              <span>Campaign collaboration</span>
+              <span>Creative testing</span>
             </div>
           </div>
         </section>

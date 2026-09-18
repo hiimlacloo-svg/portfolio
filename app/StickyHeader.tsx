@@ -7,9 +7,9 @@ export default function StickyHeader() {
 
   useEffect(() => {
     const updateHeader = () => {
-      const aboutSection = document.getElementById("about");
-      const hasReachedSecondSection = aboutSection
-        ? aboutSection.getBoundingClientRect().top <= 96
+      const workSection = document.getElementById("work");
+      const hasReachedSecondSection = workSection
+        ? workSection.getBoundingClientRect().top <= 96
         : window.scrollY >= window.innerHeight;
 
       setIsScrolled(hasReachedSecondSection);
