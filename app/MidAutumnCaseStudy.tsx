@@ -1,4 +1,5 @@
 import Silk from "@/components/Silk/Silk";
+import BorderGlow from "@/components/BorderGlow/BorderGlow";
 
 const creatorPosts = [
   "http://xhslink.com/o/wHH3IexPWx",
@@ -11,17 +12,17 @@ const contributions = [
   {
     number: "01",
     title: "Audience-specific creative",
-    copy: "Developed separate B2B and B2C messaging and artwork, adapting the campaign for corporate gifting, personal gifting and collectors.",
+    copy: "Developed separate B2B and B2C messaging and artwork for corporate gifting, personal gifting and collectors.",
   },
   {
     number: "02",
     title: "Digital campaign assets",
-    copy: "Designed the campaign’s digital artwork and prepared creative variations for testing across advertising and social placements.",
+    copy: "Designed digital campaign artwork and prepared creative variations for testing across advertising and social placements.",
   },
   {
     number: "03",
     title: "Retail campaign artwork",
-    copy: "Designed A2 foamboard displays and A4 posters, including promotional artwork for the TAKA Mid-Autumn booth, carrying the campaign identity into physical retail.",
+    copy: "Designed A2 foamboard displays and A4 posters, including promotional artwork for the TAKA Mid-Autumn booth.",
   },
   {
     number: "04",
@@ -36,7 +37,6 @@ const results = [
   { value: "1.8K", label: "Meta landing-page views" },
   { value: "18K", label: "Google Search impressions" },
   { value: "658", label: "Google Search clicks" },
-  { value: "06", label: "Malaysia creators in the campaign" },
 ];
 
 export default function MidAutumnCaseStudy() {
@@ -89,7 +89,7 @@ export default function MidAutumnCaseStudy() {
             </div>
             <div>
               <span>Scope</span>
-              <strong>Audience-specific messaging · Digital artwork · Retail materials · Shopify content · Creative testing</strong>
+              <strong>B2B &amp; B2C Content · Digital Artwork · Retail Materials · Shopify Content · Ad Testing &amp; Optimisation</strong>
             </div>
           </div>
 
@@ -112,9 +112,9 @@ export default function MidAutumnCaseStudy() {
             </p>
             <p>
               Working from the CMO’s campaign direction, I developed audience-specific
-              messaging, digital artwork, retail materials and Shopify blog content. My
-              contribution focused on translating the campaign direction into consistent
-              creative across online and physical touchpoints.
+              messaging, digital artwork, retail materials and Shopify blog content,
+              translating the brief into consistent creative across online and physical
+              touchpoints.
             </p>
 
             <div className="case-brief-subsection">
@@ -189,11 +189,10 @@ export default function MidAutumnCaseStudy() {
             <div className="case-collaboration">
               <h3>Team collaboration</h3>
               <p>
-                Wells, the CMO, provided the initial campaign direction and selected the
-                channels. I translated that direction into the artwork and content
-                described above. Calvin created the catalogue and contributed selected
-                product images, while the external agency handled communication with the
-                Malaysia KOLs.
+                Wells, the CMO, provided the campaign direction and selected the channels.
+                I developed the campaign artwork and content described above. Calvin
+                created the catalogue and contributed selected product images, while the
+                external agency handled communication with the Malaysia KOLs.
               </p>
             </div>
           </div>
@@ -206,17 +205,28 @@ export default function MidAutumnCaseStudy() {
               <h2>An initial reporting baseline for future campaigns.</h2>
               <p>
                 No historical campaign reports were available to me for comparison.
-                These results provide an initial reference point for awareness and
-                traffic reporting. Figures are rounded and reflect the campaign as a
-                whole.
+                These figures provide an initial reference point for awareness and
+                traffic reporting and reflect the campaign as a whole.
               </p>
             </div>
             <div className="case-results-grid">
-              {results.map((item) => (
-                <article className="case-result" key={item.label}>
+              {results.map((item, index) => (
+                <BorderGlow
+                  className="case-result"
+                  edgeSensitivity={30}
+                  glowColor="40 80 80"
+                  backgroundColor={index === 0 ? "#d9ff43" : "#070908"}
+                  borderRadius={22}
+                  glowRadius={32}
+                  glowIntensity={0.9}
+                  coneSpread={25}
+                  animated={false}
+                  colors={["#c084fc", "#f472b6", "#38bdf8"]}
+                  key={item.label}
+                >
                   <strong>{item.value}</strong>
                   <span>{item.label}</span>
-                </article>
+                </BorderGlow>
               ))}
             </div>
             <p className="case-data-note">
@@ -283,6 +293,51 @@ export default function MidAutumnCaseStudy() {
               </figcaption>
             </figure>
           </div>
+
+          <div className="case-audience-comparison">
+            <div className="case-audience-comparison-heading">
+              <span>Creative direction</span>
+              <h3>B2B vs B2C creative</h3>
+            </div>
+            <div className="case-audience-comparison-grid">
+              <figure>
+                <a
+                  href="/projects/mid-autumn/b2b-corporate-gifting.jpg"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Enlarge the B2B corporate gifting creative"
+                >
+                  <img
+                    src="/projects/mid-autumn/b2b-corporate-gifting.jpg"
+                    alt="SUNS Mid-Autumn B2B corporate gifting campaign creative"
+                    loading="lazy"
+                  />
+                </a>
+                <figcaption>
+                  <span>B2B / Corporate gifting</span>
+                  <p>Focused on corporate gifting and customisation for client and team gifting.</p>
+                </figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="/projects/mid-autumn/b2c-personal-gifting.png"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Enlarge the B2C personal gifting creative"
+                >
+                  <img
+                    src="/projects/mid-autumn/b2c-personal-gifting.png"
+                    alt="SUNS Mid-Autumn B2C personal gifting campaign creative"
+                    loading="lazy"
+                  />
+                </a>
+                <figcaption>
+                  <span>B2C / Personal gifting</span>
+                  <p>Presented the collection for family and friends, as well as personal collecting.</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
 
         <section className="case-section shell case-creators-section">
@@ -290,11 +345,25 @@ export default function MidAutumnCaseStudy() {
           <div className="case-creators-copy">
             <h2>Malaysia creator activity</h2>
             <p>
-              The campaign included six Malaysia-based creators, with communication
-              handled by the external agency. Four selected live examples are linked
-              below.
+              The campaign included six Malaysia-based creators, with creator communication
+              handled by the external agency. Four selected live examples are linked below.
             </p>
           </div>
+          <BorderGlow
+            className="case-result case-creator-count"
+            edgeSensitivity={30}
+            glowColor="40 80 80"
+            backgroundColor="#d9ff43"
+            borderRadius={22}
+            glowRadius={32}
+            glowIntensity={0.9}
+            coneSpread={25}
+            animated={false}
+            colors={["#c084fc", "#f472b6", "#38bdf8"]}
+          >
+            <strong>6</strong>
+            <span>Participating creators</span>
+          </BorderGlow>
           <div className="case-creator-links">
             {creatorPosts.map((href, index) => (
               <a href={href} target="_blank" rel="noreferrer" key={href}>
@@ -315,10 +384,10 @@ export default function MidAutumnCaseStudy() {
               testing to build an initial evidence base for future decisions.
             </p>
             <div className="case-outcome-tags" aria-label="Project strengths">
-              <span>B2B &amp; B2C creative</span>
-              <span>Digital &amp; retail design</span>
-              <span>Campaign collaboration</span>
-              <span>Creative testing</span>
+              <span>B2B &amp; B2C Creative</span>
+              <span>Digital &amp; Retail Design</span>
+              <span>Campaign Collaboration</span>
+              <span>Creative Testing</span>
             </div>
           </div>
         </section>

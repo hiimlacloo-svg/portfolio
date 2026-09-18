@@ -34,8 +34,8 @@ export default function StickyHeader() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
           <a href="#capabilities">Capabilities</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
         <div className="header-meta">

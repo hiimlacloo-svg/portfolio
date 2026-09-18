@@ -10,6 +10,7 @@ type ProjectCase = {
   description: string;
   tags: string[];
   image: string;
+  fullImage?: string;
   alt: string;
 };
 
@@ -104,6 +105,7 @@ const projects: Project[] = [
           "Product Content",
         ],
         image: "/projects/murad-store-enhanced.png",
+        fullImage: "/projects/murad-store.jpg",
         alt: "Murad Shopee official store designed and launched by Lac",
       },
       {
@@ -118,6 +120,7 @@ const projects: Project[] = [
           "Platform Banner Upload",
         ],
         image: "/projects/hansgrohe-store.jpg",
+        fullImage: "/projects/hansgrohe-store.jpg",
         alt: "Hansgrohe marketplace store revamp designed by Lac",
       },
     ],
@@ -300,7 +303,7 @@ const skillGroups = [
     items: [
       "Social media content planning & design",
       "Campaign asset adaptation",
-      "Paid-media creative support",
+      "Paid-media creative development and testing",
       "KOL coordination",
     ],
   },
@@ -465,6 +468,17 @@ export default function Home() {
                         <span className="commerce-case-index">0{index + 1}</span>
                         <h4>{item.title}</h4>
                         <p>{item.description}</p>
+                        {item.fullImage && (
+                          <a
+                            className="commerce-full-design"
+                            href={item.fullImage}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`View the full ${item.title} design`}
+                          >
+                            View full design <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
                         <div className="project-tags commerce-case-tags">
                           {item.tags.map((tag) => (
                             <span key={tag}>{tag}</span>
@@ -552,7 +566,7 @@ export default function Home() {
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
                 </div>
-                <span className="capability-note">{item.note} ↗</span>
+                <span className="capability-note">{item.note}</span>
               </>
             );
 
@@ -607,7 +621,8 @@ export default function Home() {
           >
             <p className="eyebrow">About Lac</p>
             <h3>
-              Design craft. Campaign thinking.<br />
+              Design craft.<br />
+              Campaign thinking.<br />
               Hands-on execution.
             </h3>
             <p className="intro-copy">
@@ -752,7 +767,7 @@ export default function Home() {
       <footer className="contact-section" id="contact">
         <div className="contact-inner shell">
           <div className="contact-top">
-            <span>Open to design and marketing opportunities in Singapore, with a focus on brand campaigns, content and e-commerce.</span>
+            <span>Open to design and marketing opportunities in Singapore, with a focus on campaigns, content and e-commerce.</span>
             <span>Full-time roles · Selective freelance availability</span>
           </div>
           <div className="contact-main contact-main-career">
